@@ -10,8 +10,8 @@ class Products
     public:
     double price;
     std::string name;
-    Products(const double p,const std::string n,const int quant):price(p),name(n),quantity(quant){}
-    Products(){}
+    Products(const double& p,const std::string& n,const int& quant):price(p),name(n),quantity(quant){}
+    Products()=default;
    virtual void show()
     {
         std::cout<<"price: "<<price<<std::endl;
@@ -36,7 +36,7 @@ class Technology :public Products
     std::string warranty, type;
     std::vector<Technology> TechProd;
     public:
-    Technology(double p,std::string n,int quant ,std::string warranty,std::string type): Products(p,n,quant),warranty(warranty),type(type){}
+    Technology( const double& p,const std::string& n,int quant ,const std::string& warranty,const std::string& type): Products(p,n,quant),warranty(warranty),type(type){}
     Technology ()=default; 
     void show () override
     {
@@ -54,7 +54,7 @@ class Technology :public Products
         std::cout<<"All Technology Products: "<<std::endl;
         for(int i=0;i<TechProd.size();++i)
         {
-            std::cout<<i+1<<": "<<TechProd.at(i).name<<" "<<TechProd.at(i).price<<std::endl;
+            std::cout<<i+1<<": "<<TechProd[i].name<<" "<<TechProd[i].price<<std::endl;
         }
     }
 };
@@ -65,9 +65,9 @@ class Food :public Products
     int calories;
     std::vector<Food> FoodProd;
     public:
-    Food(double p,const std::string n, int quant, std::string expiry, std::string type, int calor):Products(p,n,quant),expiry(expiry),type(type),calories(calor)
+    Food(const double& p,const std::string& n, const int& quant, const std::string& expiry, const std::string& type, const int& calor):Products(p,n,quant),expiry(expiry),type(type),calories(calor)
     {}
-    Food(){}
+    Food()=default;
     void show() override
     {
         std::cout<<"Type: "<<type<<std::endl;
@@ -85,7 +85,7 @@ class Food :public Products
         std::cout<<"All Food Products: "<<std::endl;
         for(int i=0;i<FoodProd.size();++i)
         {
-            std::cout<<i<<": "<<FoodProd.at(i).name<<" "<<FoodProd[i].price<<std::endl;
+            std::cout<<i<<": "<<FoodProd[i].name<<" "<<FoodProd[i].price<<std::endl;
         }
     }
 };
@@ -96,9 +96,9 @@ class Drink :public Products
     std::string type;
     std::vector<Drink> DrinkProd;
     public:
-    Drink(double p,std::string n, int quant,std::string type, int calor, int size):Products(p,n,quant),type(type),calories(calor),ml(size)
+    Drink(const double& p,const std::string& n,const int& quant,const std::string& type, const int& calor,const int& size):Products(p,n,quant),type(type),calories(calor),ml(size)
     {}
-    Drink(){}
+    Drink()=default;
     void show() override 
     {
         std::cout<<"Type: "<<type<<std::endl;
