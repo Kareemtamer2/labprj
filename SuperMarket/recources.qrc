@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/pics">
+        <file>backgrond1.jpeg</file>
+        <file>background2.jpeg</file>
+        <file>background3.jpeg</file>
+        <file>background4.jpg</file>
+        <file>logo.png</file>
+        <file>logo2.png</file>
+        <file>jazz-bossa-nova-163669.mp3</file>
+        <file>promo1.png</file>
+    </qresource>
+    <qresource prefix="/images"/>
+</RCC>
